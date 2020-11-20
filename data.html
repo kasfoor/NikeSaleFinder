@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Results Page{% endblock %}
+
+{% block content %}
+
+<form action="/result" method="post" id="form2">
+    <button type = "Submit" form="form2" value="go-back" name="go-back">Search Again?</button>
+</form>
+<div>
+{% for item in data %}
+    <h3>{{item.name + ": " + item.price}}<a href="{{item.link}}">Buy Now</a></h3>
+{% endfor %}
+</div>
+<div>
+    {% if not data %}
+    <h3>No Results Were Found :(</h3>
+    {% endif %}
+</div>
+
+{% endblock %}
